@@ -6,16 +6,14 @@ let computerScore = 0;
 // getComputerChoice
 
 function getComputerChoice() {
-	const choice = Math.floor(Math.random() * 10) + 1;
+	const choice = Math.floor(Math.random() * 3); // Generates 0, 1, or 2
 	let computerChoice;
-	if(choice >= 1 && choice <= 3) {
-		computerChoice = "Rock";
-	}
-	else if(choice > 3 && choice <= 6) {
-		computerChoice = "Paper";
-	}
-	else if(choice > 6 && choice <= 9) {
-		computerChoice = "Scissors";
+	if (choice === 0) {
+		computerChoice = "rock";
+	} else if (choice === 1) {
+		computerChoice = "paper";
+	} else {
+		computerChoice = "scissors";
 	}
 	return computerChoice;
 }
@@ -28,9 +26,58 @@ function getHumanChoice() {
 	return humanChoice;
 }
 
-let computerChoice = getComputerChoice();
-console.log(computerChoice);
-let humanChoice = getHumanChoice();
-console.log(humanChoice);
-
 // playRound to check who wins
+
+function playRound(computerChoice, humanChoice) {
+	humanChoice = humanChoice.toLowerCase();
+	if(computerChoice === "rock") {
+		if(humanChoice === "rock") {
+			console.log("Its an tie");
+		}
+		else if(humanChoice === "paper") {
+			console.log("You win this round. Paper beats Rock");
+			humanScore++;
+		}
+		else {
+			console.log("You lose. Rock beats scissors");
+			computerScore++;
+		}
+	}
+		if(computerChoice === "paper") {
+		if(humanChoice === "rock") {
+			console.log("you lose");
+			computerScore++;
+		}
+		else if(humanChoice === "paper") {
+			console.log("tie");
+		}
+		else {
+			console.log("You win");
+			humanScore++;
+		}
+	}
+		if(computerChoice === "scissors") {
+		if(humanChoice === "rock") {
+			console.log("you win");
+			humanScore++;
+		}
+		else if(humanChoice === "paper") {
+			console.log("you lose");
+			computerScore++;
+		}
+		else {
+			console.log("tie");
+		}
+	}
+}
+
+//Play 5 rounds
+
+function playGame() {
+	const computerChoice = getComputerChoice();
+	const humanChoice = getHumanChoice();
+	playRound(computerChoice, humanChoice); 
+}
+ 
+
+ 
