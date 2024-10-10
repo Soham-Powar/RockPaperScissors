@@ -43,7 +43,7 @@ function playRound(computerChoice, humanChoice) {
 			computerScore++;
 		}
 	}
-		if(computerChoice === "paper") {
+	else if(computerChoice === "paper") {
 		if(humanChoice === "rock") {
 			console.log("you lose");
 			computerScore++;
@@ -56,7 +56,7 @@ function playRound(computerChoice, humanChoice) {
 			humanScore++;
 		}
 	}
-		if(computerChoice === "scissors") {
+	else if(computerChoice === "scissors") {
 		if(humanChoice === "rock") {
 			console.log("you win");
 			humanScore++;
@@ -78,6 +78,21 @@ function playGame() {
 	const humanChoice = getHumanChoice();
 	playRound(computerChoice, humanChoice); 
 }
- 
+
+for(i = 0; i < 5; i++) {
+	playGame();
+	console.log("Your score is: " + humanScore);
+	console.log("The CPU's score is: " + computerScore);
+}
+
+if(humanScore > computerScore) {
+	console.log("You won the game!");
+}
+else if(computerScore > humanScore) {
+	console.log("You lost! Better luck next time.");
+}
+else {
+	console.log("Woahh! Its an tie.")
+}
 
  
