@@ -4,6 +4,7 @@ let computerScore = 0;
 const btnRock = document.querySelector(".rock");
 const btnPaper = document.querySelector(".paper");
 const btnScissors = document.querySelector(".scissors");
+const div = document.querySelector('.result');
 
 // A function will return the choice of computer randomly
 // getComputerChoice
@@ -25,6 +26,7 @@ function getComputerChoice() {
 
 function playRound(computerChoice, humanChoice) {
 	humanChoice = humanChoice.toLowerCase();
+	div.textContent = `Computer chose: ${computerChoice}. You chose: ${humanChoice}. `;
 	if(computerChoice === "rock") {
 		if(humanChoice === "rock") {
 			console.log("Its an tie");
@@ -64,28 +66,28 @@ function playRound(computerChoice, humanChoice) {
 			console.log("tie");
 		}
 	}
-	console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
+	let textNode = document.createTextNode(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
+	div.appendChild(textNode);
 }
 
 
 // Event listeners for button clicks
-const div = document.querySelector('.result');
 btnRock.addEventListener('click', function() {
 	const computerChoice = getComputerChoice();
 	playRound(computerChoice, "rock");
-	div.textContent = `Computer chose: ${computerChoice}. You chose: rock. `;
+	// div.textContent = `Computer chose: ${computerChoice}. You chose: rock. `;
 });
 
 btnPaper.addEventListener('click', function() {
 	const computerChoice = getComputerChoice();
 	playRound(computerChoice, "paper");
-	div.textContent = `Computer chose: ${computerChoice}. You chose: paper. `;
+	// div.textContent = `Computer chose: ${computerChoice}. You chose: paper. `;
 });
 
 btnScissors.addEventListener('click', function() {
 	const computerChoice = getComputerChoice();
 	playRound(computerChoice, "scissors");
-	div.textContent = `Computer chose: ${computerChoice}. You chose: scissors. `;
+	// div.textContent = `Computer chose: ${computerChoice}. You chose: scissors. `;
 });
 
 
