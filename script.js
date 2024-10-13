@@ -1,6 +1,9 @@
 // variables will keep track of score
 let humanScore = 0;
 let computerScore = 0;
+const btnRock = document.querySelector(".rock");
+const btnPaper = document.querySelector(".paper");
+const btnScissors = document.querySelector(".scissors");
 
 // A function will return the choice of computer randomly
 // getComputerChoice
@@ -16,14 +19,6 @@ function getComputerChoice() {
 		computerChoice = "scissors";
 	}
 	return computerChoice;
-}
-
-// A function to get the choice of human
-//getHumanChoice
-
-function getHumanChoice() {
-	let humanChoice = prompt("What do you choose?");
-	return humanChoice;
 }
 
 // playRound to check who wins
@@ -69,30 +64,29 @@ function playRound(computerChoice, humanChoice) {
 			console.log("tie");
 		}
 	}
+	console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
 }
 
-//Play 5 rounds
 
-function playGame() {
+// Event listeners for button clicks
+const div = document.querySelector('.result');
+btnRock.addEventListener('click', function() {
 	const computerChoice = getComputerChoice();
-	const humanChoice = getHumanChoice();
-	playRound(computerChoice, humanChoice); 
-}
+	playRound(computerChoice, "rock");
+	div.textContent = `Computer chose: ${computerChoice}. You chose: rock. `;
+});
 
-for(i = 0; i < 5; i++) {
-	playGame();
-	console.log("Your score is: " + humanScore);
-	console.log("The CPU's score is: " + computerScore);
-}
+btnPaper.addEventListener('click', function() {
+	const computerChoice = getComputerChoice();
+	playRound(computerChoice, "paper");
+	div.textContent = `Computer chose: ${computerChoice}. You chose: paper. `;
+});
 
-if(humanScore > computerScore) {
-	console.log("You won the game!");
-}
-else if(computerScore > humanScore) {
-	console.log("You lost! Better luck next time.");
-}
-else {
-	console.log("Woahh! Its an tie.")
-}
+btnScissors.addEventListener('click', function() {
+	const computerChoice = getComputerChoice();
+	playRound(computerChoice, "scissors");
+	div.textContent = `Computer chose: ${computerChoice}. You chose: scissors. `;
+});
 
- 
+
+

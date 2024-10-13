@@ -5,12 +5,42 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<script src="script.js">
+	<script src="script.js" defer>
 	</script>
+	<style>
+		button {
+			height: 100px;
+			width: 500px;
+			flex: 1;
+			margin: 10px;
+			font-size: 32px;
+			border-radius: 10px;
+			background-color: pink;
+		}
+
+		button:hover {
+			background-color: rgb(253, 163, 178);
+		}
+
+		.buttons {
+			display: flex;
+		}
+
+		.result {
+			text-align: center;
+			margin-top: 50px;
+			font-size: 20px;
+		}
+	</style>
 </head>
 
 <body>
-
+	<div class="buttons">
+		<button class="rock">Rock</button>
+		<button class="paper">Paper</button>
+		<button class="scissors">Scissors</button>
+	</div>
+	<div class="result">fq</div>
 </body>
 
 </html>
